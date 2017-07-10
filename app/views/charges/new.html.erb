@@ -1,0 +1,30 @@
+
+
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <% if @order_products.any? %>
+      <% @order_products.each do |item| %>
+        <p><%= item.product.name %> | <%= link_to "Delete", order_product_path(item), :data => {:confirm => "You sure?", :method => "delete"} %></p>
+        <p> Unit Price: <%= number_to_currency item.product.price %> | Quantity: <%= item.quantity %> | Total Price: <%= number_to_currency (item.product.price * item.quantity) %></p>
+      <% end %>
+      <label class="amount">
+        <span>Amount: <%= number_to_currency current_order.total_price %></span>
+      </label>
+    <% else %>
+      <p>Your shopping cart is empty.</p>
+    <% end %>
+
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount=<%= current_order.total_price * 100 %>
+          console.log(data-amount)
+          data-locale="auto"></script>
+<% end %>
