@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  # get 'carts/show'
-  #
-  # get 'order_items/create'
-  #
-  # get 'products/index'
 
   root 'products#index'
 
@@ -14,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :products
 
-  resources :order_items
+  resources :order_products
 
 
 end

@@ -1,16 +1,15 @@
-class OrderItemsController < ApplicationController
+class OrderProductsController < ApplicationController
   def create
     @order = current_order
-    @item = @order.order_items.new(item_params)
+    @item = @order.order_products.new(item_params)
     @order.save
-    binding.pry
     session[:order_id] = @order.id
     redirect_to products_path
   end
 
   def destroy
     @order = current_order
-    @item = @order.order_items.find(params[:id])
+    @item = @order.order_products.find(params[:id])
     @item.destroy
     @order.save
     redirect_to cart_path
@@ -19,6 +18,6 @@ class OrderItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:order_item).permit(:quantity, :product_id)
+    params.require(:order_product).permit(:quantity, :product_id)
   end
 end

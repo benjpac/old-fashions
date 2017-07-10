@@ -1,11 +1,13 @@
 class Order < ApplicationRecord
-  has_many :order_items
+  has_many :order_products
+  has_many :products, through: :order_products
   belongs_to :account
+
   before_save :update_total
   before_create :update_status
 
   def calculate_total
-    self.order_items.collect { |item| item.product.price * item.quantity }.sum
+    self.order_products.collect { |item| item.product.price * item.quantity }.sum
   end
 
   private
