@@ -1,11 +1,80 @@
-<% if current_order.id %>
-  <%= link_to "Cart", new_charge_path %>
-<% end %>
-<% @products.each do |product| %>
- <p><%= product.name %> | <%= number_to_currency product.price %>
- <%= form_for @order_product do |f| %>
-   <%= f.hidden_field :product_id, value: product.id %>
-   <%= f.number_field :quantity %>
-   <%= f.submit "Add to cart" %>
- <% end %></p>
-<% end %>
+<section class="main">
+  <div class="content">
+    <section class="bar">
+      <div class="bar-frame">
+        <ul class="breadcrumbs">
+          <li><a href="index.html">Home</a></li>
+          <li>Product results</li>
+        </ul>
+      </div>
+    </section>
+    <div class="top-bar">
+      <form class="form-sort" action="#">
+        <fieldset>
+          <div class="row">
+            <label for="sort">Sort by :</label>
+            <select id="sort">
+              <option>price</option>
+              <option>price</option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="page">Products per page:</label>
+            <select id="page">
+              <option>8</option>
+              <option>8</option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="page">Type of product:</label>
+            <select id="page">
+              <option>Boxed</option>
+              <option>Boxed</option>
+            </select>
+          </div>
+        </fieldset>
+      </form>
+      <ul class="paging">
+        <li class="prev"><a href="#">prev</a></li>
+        <li><a href="#">1</a></li>
+        <li class="active"><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li class="next"><a href="#">next</a></li>
+      </ul>
+    </div>
+
+    <ul class="item-product">
+      <% @products.each do |product| %>
+        <li>
+          <div class="item">
+            <div class="image">
+              <a href="product.html"><img src="images/pic_06.png"  alt="" /></a>
+            </div>
+            <span class="name"><a href="product.html"><%= product.name %></a></span>
+            <span><%= number_to_currency product.price %></span>
+            <p>
+              <%= form_for @order_product do |f| %>
+                <%= f.hidden_field :product_id, value: product.id %>
+                <%= f.number_field :quantity %>
+                <%= f.submit "Add to cart" %>
+              <% end %>
+            </p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <div class="top-bar top-bar-add">
+      <ul class="paging">
+        <li class="prev"><a href="#">prev</a></li>
+        <li><a href="#">1</a></li>
+        <li class="active"><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li class="next"><a href="#">next</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
