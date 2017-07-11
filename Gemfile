@@ -39,6 +39,7 @@ gem 'devise'
 gem 'faker'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'stripe'
+gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -56,7 +56,7 @@
   						</ul>
               <% if current_order.id %>
                 <div class="checkout">
-    							<span><%= current_order.order_products.length %> products, <span class="pink">$<%= current_order.total_price %></span></span>
+    							<span><%= current_order.calculate_quantity %> products, <span class="pink">$<%= current_order.total_price %></span></span>
                   <%= link_to "Checkout", new_charge_path, class: "btn btn_checkout" %>
                 </div>
               <% end %>
@@ -90,13 +90,10 @@
   						</div>
   					</nav>
   				</header>
-
-
-
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
           <%= yield %>
-
+          <br>
           <footer id="footer">
       			<div class="footer-content">
       				<ul class="left_side">
