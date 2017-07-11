@@ -10,6 +10,7 @@ class User < ApplicationRecord
   private
 
   def create_account
+    # self.account.create
     Account.create(user_id: self.id)
   end
 

@@ -1,4 +1,6 @@
-<%= link_to "Cart", new_charge_path %>
+<% if current_order.id %>
+  <%= link_to "Cart", new_charge_path %>
+<% end %>
 <% @products.each do |product| %>
  <p><%= product.name %> | <%= number_to_currency product.price %>
  <%= form_for @order_product do |f| %>

@@ -25,6 +25,5 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
           data-amount=<%= current_order.total_price * 100 %>
-          console.log(data-amount)
           data-locale="auto"></script>
 <% end %>
