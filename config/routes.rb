@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'users/create'
 
-  devise_for :users
+  devise_for :users, :controllers=>{ registrations: 'registrations', sessions: 'sessions'}
 
 
   root 'products#index'

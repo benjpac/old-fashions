@@ -3,7 +3,6 @@ class OrderProductsController < ApplicationController
     @order = current_order
     @item = @order.order_products.new(item_params)
     @order.save
-    binding.pry
     session[:order_id] = @order.id
     redirect_to products_path
   end
@@ -13,7 +12,7 @@ class OrderProductsController < ApplicationController
     @item = @order.order_products.find(params[:id])
     @item.destroy
     @order.save
-    redirect_to cart_path
+    redirect_to new_charge_path
   end
 
   private
