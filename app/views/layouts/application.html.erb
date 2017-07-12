@@ -34,7 +34,7 @@
   		<div class="wrapper-holder">
   			<div class="header-holder">
   				<header id="header">
-  					<span class="logo"><a href="index.html">Bambino</a></span>
+  					<span class="logo"><a href="/">Bambino</a></span>
   					<div class="tools-nav_holder">
   						<ul class="tools-nav">
   							<% if current_user %>
@@ -55,7 +55,7 @@
                 </li>
   						</ul>
               <div class="checkout">
-  							<span id="quantity"><%= current_order.calculate_quantity %> products, <span id="total-price" class="pink">$<%= current_order.total_price %></span></span>
+  							<span id="quantity"><%= current_order.calculate_quantity %> products</span><span id="total-price">$<%= current_order.total_price %></span>
                 <%= link_to "Checkout", new_charge_path, class: "btn btn_checkout" %>
               </div>
   					</div>
