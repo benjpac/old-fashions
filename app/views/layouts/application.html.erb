@@ -54,12 +54,10 @@
                 <% end %>
                 </li>
   						</ul>
-              <% if current_order.id %>
-                <div class="checkout">
-    							<span><%= current_order.calculate_quantity %> products, <span class="pink">$<%= current_order.total_price %></span></span>
-                  <%= link_to "Checkout", new_charge_path, class: "btn btn_checkout" %>
-                </div>
-              <% end %>
+              <div class="checkout">
+  							<span id="quantity"><%= current_order.calculate_quantity %> products, <span id="total-price" class="pink">$<%= current_order.total_price %></span></span>
+                <%= link_to "Checkout", new_charge_path, class: "btn btn_checkout" %>
+              </div>
   					</div>
   					<div class="clear"></div>
   					<a class="menu_trigger" href="#">menu</a>
