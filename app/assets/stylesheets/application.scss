@@ -14,3 +14,18 @@
  *= require_self
  */
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+ .cart-amount {
+   height: 2em;
+   width: 5em;
+   border-radius: 1em;
+ }
+
+ .cart-submit {
+   background-color: #ea5f8a;
+   border-radius: 5px;
+   color: white;
+   font-size: 14px;
+   height: 2em;
+   width: 9em;
+   border-radius: 1em !important;
+ }

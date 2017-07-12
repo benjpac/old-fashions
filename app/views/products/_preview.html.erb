@@ -1,0 +1,13 @@
+<div class="image">
+  <a href="product.html"><img src="images/pic_06.png"  alt="" /></a>
+</div>
+<span class="name"><%= link_to product.name,product_path(product),remote: true%></span>
+<span><%= number_to_currency product.price %></span>
+<br>
+<p>
+  <%= form_for @order_product, remote: true do |f| %>
+    <%= f.hidden_field :product_id, value: product.id %>
+    <%= f.number_field :quantity, :min=>'0', class: 'cart-amount' %>
+    <%= f.submit "Add to cart", class: 'cart-submit' %>
+  <% end %>
+</p>

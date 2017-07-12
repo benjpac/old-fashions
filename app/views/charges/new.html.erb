@@ -1,3 +1,4 @@
+<br>
 <%= form_tag charges_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -8,7 +9,7 @@
     <% if @order_products.any? %>
       <% @order_products.each do |item| %>
         <div class="padding">
-          <p><%= item.product.name %> | <%= link_to "Delete", order_product_path(item), :data => {:confirm => "You sure?", :method => "delete"} %></p>
+          <p><%= item.product.name %> | <%= link_to "Delete", order_product_path(item), :data => {:method => "delete"} %></p>
           <p> Unit Price: <%= number_to_currency item.product.price %> | Quantity: <%= item.quantity %> | Total Price: <%= number_to_currency (item.product.price * item.quantity) %></p>
         </div>
       <% end %>
@@ -30,7 +31,7 @@
   <% else %>
   <div class="padding default-font">
     <br>
-    <%= link_to "Sign in to check out", new_user_session_path%> |
+    <%= link_to "Sign in to check out", new_user_session_path %> |
     <%= link_to "Sign up to check out", new_user_registration_path %>
   </div>
   <% end %>
