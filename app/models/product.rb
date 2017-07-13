@@ -6,7 +6,7 @@ class Product < ApplicationRecord
     if search
       where('LOWER(name) LIKE ?', "%#{search.downcase}%")
     else
-      all
+      where(nil)
     end
   end
 end

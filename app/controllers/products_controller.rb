@@ -12,6 +12,12 @@ class ProductsController < ApplicationController
       format.js { }
     end
   end
+
+  # def update_products
+  #   @products = Product.search(params[:search]).order(sort_default+ " " + direction_default).paginate(:per_page => 10, :page => params[:page])
+  #   @order_product = current_order.order_products.new
+  #   render 'test'
+  # end
 end
 
 private

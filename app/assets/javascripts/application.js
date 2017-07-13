@@ -16,3 +16,11 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+
+function sortable(sort_options){
+  jQuery.ajax({
+    url: '/update_products',
+    type: 'GET'
+    // route to products index, pass in sort options
+  })
+}

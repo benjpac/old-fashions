@@ -14,12 +14,7 @@
         <fieldset>
           <div class="row">
             <label for="sort">Sort by :</label>
-            <select id="sort">
-              <option>price</option>
-              <option>name</option>
-            </select>
-            <%= sortable 'name' %>
-            <%= sortable 'price' %>
+            <%= select_tag(:sort_option,options_for_select([['Name','name'],['Price','price']]), :onchange => 'sortable("test")') %>
           </div>
           <div class="row">
             <label for="page">Products per page:</label>
