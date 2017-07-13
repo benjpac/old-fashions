@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.search(params[:search]).all.paginate(:per_page => 10, :page => params[:page])
     @order_product = current_order.order_products.new
   end
 

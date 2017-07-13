@@ -1,9 +1,4 @@
-var id = <%= @product.id %>
+var id = '#item_<%= @product.id %>'
 
-
-if(Math.random()>.4){
-  $('#item_'+id).empty().append('<%= j render("detail") %>')
-}
-else{
-  $('#item_'+id).empty().append('<%= j render("preview") %>')
-}
+  $(id+' .detail').toggle()
+  $(id+' .preview').toggle()
