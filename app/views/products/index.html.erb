@@ -16,8 +16,10 @@
             <label for="sort">Sort by :</label>
             <select id="sort">
               <option>price</option>
-              <option>price</option>
+              <option>name</option>
             </select>
+            <%= sortable 'name' %>
+            <%= sortable 'price' %>
           </div>
           <div class="row">
             <label for="page">Products per page:</label>
